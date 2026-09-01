@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Neon Wire Arena</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05080d;color:#fff;font-family:Arial,sans-serif}canvas{display:block}
+#start{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#0d2438aa,#020408f2)}
+.card{width:min(560px,92vw);background:#07101bea;border:1px solid #1f6388;border-radius:22px;padding:38px;text-align:center;box-shadow:0 0 80px #0079b51f}
+h1{font-size:52px;letter-spacing:5px;margin:0;text-shadow:0 0 25px #1fc9ff}.sub{color:#9bb3c9;margin:10px 0 26px}input,button{border:1px solid #27617e;background:#0a1824;color:white;border-radius:9px;padding:12px 14px}input{width:230px}button{cursor:pointer;font-weight:800}button.primary{background:#19b8ff;color:#031018;border:0}
+#top{position:fixed;top:14px;left:14px;right:14px;z-index:3;display:flex;justify-content:space-between;pointer-events:none}.box{background:#07111ddd;border:1px solid #1c4c66;border-radius:11px;padding:9px 13px;backdrop-filter:blur(5px)}#score{font-size:22px;font-weight:900}#length{color:#8ba3b9;font-size:12px}
+#board{position:fixed;right:14px;top:80px;width:190px;z-index:3;background:#07111ddd;border:1px solid #1c4c66;border-radius:11px;padding:12px;font-size:12px}.board div{display:flex;justify-content:space-between;padding:5px 0}
+#adminBtn{pointer-events:auto}#toast{display:none;position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:20;background:#16aeea;color:#031018;padding:11px 18px;border-radius:9px;font-weight:900}
+#login{display:none;position:fixed;inset:0;z-index:30;align-items:center;justify-content:center;background:#000b}.admin{width:min(700px,94vw);max-height:88vh;overflow:auto;background:#07111df5;border:1px solid #28799f;border-radius:17px;padding:20px}.ap{border-bottom:1px solid #183445;padding:10px 0}.ap small{display:block;color:#8097aa;margin:3px 0 7px}.ap button{font-size:11px;padding:7px;margin-right:4px}
+</style></head><body>
+<canvas id="game"></canvas>
+<div id="top"><div class="box"><div id="score">0</div><div><span id="length">0</span> trail length</div></div><div class="box">WASD / Arrows • <b>SPACE</b> boost</div><button id="adminBtn">ADMIN</button></div>
+<div id="board"><b>LEADERBOARD</b><div class="board" id="board"></div></div><div id="toast"></div>
+<div id="start"><div class="card"><h1>NEON WIRE</h1><div class="sub">Fast electric trail arena • boost • cut off rivals • dominate the leaderboard</div><input id="name" maxlength="18" placeholder="Your name"><button class="primary" id="play">PLAY</button><p style="color:#71879b;font-size:12px">Original game inspired by the arcade trail-snake genre.</p></div></div>
+<div id="login"><div class="admin"><h2>👑 Admin Panel</h2><input id="pw" type="password" placeholder="Admin password"> <button id="loginBtn">Login</button><button id="close">Close</button><hr><button id="announce">📢 Announcement</button> <button id="reset">↻ Reset Scores</button><div id="adminPlayers"></div></div></div>
+<script src="/socket.io/socket.io.js"></script><script src="/client.js"></script><script src="/admin.js"></script></body></html>
